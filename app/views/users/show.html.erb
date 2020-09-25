@@ -1,7 +1,6 @@
 
 
 <div class="container">
-	
 	<div class="row">
 		<div class="col-xs-3 col-md-3">
 			<%= render 'users/profile', user: @user %>
@@ -9,23 +8,7 @@
 		</div>
 		<div class="col-xs-9 col-md-9">
 			<h3>Books</h3>
-			<div class="colored">
-			<table class="table table-hover">
-				<thead>
-					<tr>
-						<th></th>
-						<th>Title</th>
-						<th>Opinion</th>
-					</tr>
-				</thead>
-					<% @books.each do |book| %>
-						<td><%= attachment_image_tag book.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size:"50x50" %></td>
-							<td><%=link_to book.title,book_path(book.id) %></td>
-						<td><%= book.body %></td>
-					</tr>
-				<% end %>
-			</table>
-			</div>
+			<%= render 'books/table', books: @books %>
 		</div>
 	</div>
 </div>
