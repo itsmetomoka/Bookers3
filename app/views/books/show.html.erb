@@ -22,10 +22,12 @@
 					<% if @book.user == current_user %>
 						<th>
 							<%= link_to "Edit", edit_book_path(@book.id), class:"btn btn-success"%>
-						</th><th>
-								<%= link_to "Destroy", book_path(@book.id),method: :delete ,"data-confirm" =>"Are you sure?", class:"btn btn-danger" %>
+						</th>
+						<th>
+							<%= link_to "Destroy", book_path(@book.id),method: :delete ,"data-confirm" =>"Are you sure?", class:"btn btn-danger" %>
+						</th>
+					</tr>
 					<% end %>
-				</th></tr>
 			</table>
 		</div>
 	</div>

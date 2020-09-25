@@ -1,20 +1,20 @@
-			<h3>User info</h3>
-			  <%= attachment_image_tag user, :profile_image, :fill, 100, 100, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
-				<table class="table">
-				  <tr><td>
-				  	<h5 class="profile-name">name</h5>
-				  </td><td>
-				  	<%= user.name %>
-				  </td></tr>
-				  <tr><td>
-						<h5 class="profile-introduction">Introduction </h5>
-					</td><td>
-					  <%= user.introduction %>
-					</td></tr>
-					<tr><td>
-						<% if user == current_user %>
-							<%= link_to edit_user_path(user), class:"btn btn-outline-secondary btn-block" do %><i class="fas fa-wrench"></i>
-							<% end %>
-						<% end %>
-				  </td></tr>
-				</table>
+<h3>User info</h3>
+  <%= attachment_image_tag user, :profile_image, :fill, 100, 100, class: "img-circle pull-left profile-thumb", fallback: "no_image.jpg"%>
+	<table class="table">
+	  <tr><td>
+	  	<h5 class="profile-name">name</h5>
+	  </td><td>
+	  	<%= user.name %>
+	  </td></tr>
+	  <tr><td>
+			<h5 class="profile-introduction">Introduction </h5>
+		</td><td>
+		  <%= user.introduction %>
+		</td></tr>
+		<tr><td>
+			<% if user == current_user %>
+				<%= link_to edit_user_path(user), class:"btn btn-outline-secondary btn-block" do %><i class="fas fa-wrench"></i>
+				<% end %>
+			<% end %>
+	  </td></tr>
+	</table>
