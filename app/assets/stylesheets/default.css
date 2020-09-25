@@ -16,3 +16,8 @@
 .colored a {
 	color: black;
 }
+
+.search-box{
+	text-align: center;
+	margin: 10px 0 20px 0;
+}

@@ -28,6 +28,13 @@ class UsersController < ApplicationController
     @book = Book.new
   end
 
+  def follows
+  end
+
+  def followers
+  end
+  
+
   private
   def user_params
   	params.require(:user).permit(:name, :profile_image, :introduction)

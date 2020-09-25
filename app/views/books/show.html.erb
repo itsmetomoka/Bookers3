@@ -19,6 +19,13 @@
 				</th><th>
 					<%= @book.body %>
 				</th>
+				<th>
+					<%= render 'favorites/favorite', book: @book %>
+				</th>
+				<th>
+					コメント数: 
+					<%= @book.book_comments.count %>
+				</th>
 					<% if @book.user == current_user %>
 						<th>
 							<%= link_to "Edit", edit_book_path(@book.id), class:"btn btn-success"%>
@@ -29,6 +36,32 @@
 					</tr>
 					<% end %>
 			</table>
+			<table>
+				<% @book.book_comments.each do |book_comment| %>
+				<tr>
+					<td>
+						<%= attachment_image_tag book_comment.user, :profile_image, :fill, 100, 100, fallback: "no_image.jpg", size: "50x50" %><br>
+						<%= book_comment.user.name %>
+					</td>
+					<td>
+						<%= book_comment.comment %>
+					</td>
+					<td>
+						<% if book_comment.user == current_user %>
+							<%= link_to "destroy", book_book_comments_path(book_comment.book,book_comment), method: :delete, class:"btn btn-sm btn-danger" %>
+						<% end %>
+					</td>
+				</tr>
+				<% end %>
+			</table>
+			<%= form_for [@book, @book_comment] do |f| %>
+			  <div class="row">
+			    <div class="col-sm-12">
+			      <%= f.text_area :comment, rows:'3', class: "form-control" %>
+			    </div>
+			  </div>
+			  <%= f.submit "送信する" %>
+			<% end %>
 		</div>
 	</div>
 </div>
