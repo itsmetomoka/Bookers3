@@ -1,0 +1,32 @@
+<table class="table">
+	<tr>
+		<th>
+			<%= attachment_image_tag book.user, :profile_image, :fill, 50, 50, fallback: "no_image.jpg", size: "50x50"%><br>
+			<div class="colored">
+				<%= link_to book.user.name%>
+			</div>
+		</th>
+		<th>
+			<%= book.title %>
+		</th>
+		<th>
+			<%= book.body %>
+		</th>
+		<th>
+			<div id="favorite_<%= @book.id %>">
+				<%= render 'favorites/favorite', book: book %>
+			</div>
+		</th>
+		<th>
+			<span class="comment-count">コメント: <%= book.book_comments.count %></span>
+		</th>
+		<% if book.user == current_user %>
+			<th>
+				<%= link_to "Edit", edit_book_path(book.id), class:"btn btn-success btn-sm"%>
+			</th>
+			<th>
+				<%= link_to "Destroy", book_path(book.id),method: :delete ,"data-confirm" =>"Are you sure?", class:"btn btn-danger btn-sm" %>
+			</th>
+		<% end %>
+	</tr>
+</table>
